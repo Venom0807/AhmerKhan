@@ -28,7 +28,7 @@ const Navbar = () => {
         isScrolled ? "bg-[#311e25] shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="text-4xl font-bold">AHMER.</div>
+      <a href="#" className="text-4xl font-bold">AHMER.</a>
       {/* Desktop Nav Links */}
       <ul className="hidden min-[889px]:flex gap-6 text-lg">
         {navLinks.map(({ to, label }) => (

@@ -38,6 +38,8 @@ const Hero = () => {
           >
             Web Developer
           </motion.h2>
+
+          {/* Smooth scroll to #works */}
           <motion.a
             href="#works"
             whileHover={{ scale: 1.05 }}
