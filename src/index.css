@@ -37,3 +37,8 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1026px) {
+  .hide-after-1506 {
+    display: none !important;
+  }
+}

@@ -57,18 +57,18 @@ const Hero = () => {
 
         {/* Right Image */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="hidden md:flex justify-end items-end w-full"
-        >
-          <img
-            src={ahmerImg}
-            alt="Ahmer Khan"
-            loading="eager"
-            className="h-[80vh] lg:h-[90vh] w-auto object-bottom object-contain"
-          />
-        </motion.div>
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1, delay: 0.5 }}
+  className="hidden md:flex justify-end items-end w-full hide-after-1506"
+>
+  <img
+    src={ahmerImg}
+    alt="Ahmer Khan"
+    loading="eager"
+    className="h-[80vh] lg:h-[90vh] w-auto object-bottom object-contain"
+  />
+</motion.div>
       </div>
     </motion.section>
   );
