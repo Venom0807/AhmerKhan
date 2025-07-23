@@ -51,7 +51,7 @@ const Footer = () => {
             rel="noreferrer"
             className="flex items-center gap-2 border border-[#c2926b] px-6 py-3 rounded hover:bg-[#c2926b] hover:text-black transition"
           >
-            <FaTwitter size={20} /> X
+            <FaTwitter size={20} /> Twitter
           </a>
           <a
             href="https://www.linkedin.com/in/ahmer-khan-0b4446318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
