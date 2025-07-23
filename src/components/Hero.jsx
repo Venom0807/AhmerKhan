@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import bg from "../assets/banner.png";
 import ahmerImg from "../assets/heroImage.png";
 
 const Hero = () => {
+  useEffect(() => {
+    // Force a layout recalculation
+    window.scrollBy(0, 1);
+    window.scrollBy(0, -1);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="h-[95vh] pt-16 md:pt-16 bg-cover bg-center bg-no-repeat px-6 md:px-20 flex items-center"
+      className="h-[95vh] pt-16 md:pt-16 bg-cover bg-center bg-no-repeat px-6 md:px-20 flex items-center overflow-hidden"
       style={{
         backgroundImage: `url(${bg})`,
       }}
     >
-      <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 sm:gap-4 md:gap-6 lg:gap-10 text-white px-2 md:px-0 h-full">
+      <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 text-white px-2 md:px-0 h-full">
         {/* Left Text */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="max-w-[600px] w-full mb-6 md:mb-0"
+          className="max-w-[600px] w-full mb-6 md:mb-0 text-center md:text-left"
         >
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light leading-tight text-white whitespace-normal"
+            className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light leading-tight whitespace-normal"
           >
             Hi There, I Am <span className="font-semibold">Ahmer Khan</span>
           </motion.h1>
@@ -39,7 +45,6 @@ const Hero = () => {
             Web Developer
           </motion.h2>
 
-          {/* Smooth scroll to #works */}
           <motion.a
             href="#works"
             whileHover={{ scale: 1.05 }}
@@ -55,12 +60,13 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="hidden md:flex items-end justify-center h-full w-full md:w-auto overflow-visible"
+          className="hidden md:flex justify-end items-end w-full"
         >
           <img
             src={ahmerImg}
             alt="Ahmer Khan"
-            className="h-full w-auto max-w-full object-bottom object-contain"
+            loading="eager"
+            className="h-[80vh] lg:h-[90vh] w-auto object-bottom object-contain"
           />
         </motion.div>
       </div>
