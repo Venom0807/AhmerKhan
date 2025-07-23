@@ -11,16 +11,19 @@ const services = [
     icon: <MonitorSmartphone size={48} />,
     title: "Web & Mobile Design",
     desc: "Designing responsive, modern UIs for both web and mobile apps.",
+    backText: "Figma, Tailwind, Responsive Layouts, UX Research",
   },
   {
     icon: <Code size={48} />,
     title: "Web Development",
     desc: "Building fast, scalable websites using modern stacks like React.",
+    backText: "React, Vite, Framer Motion, Firebase, MongoDB",
   },
   {
     icon: <ShoppingCart size={48} />,
     title: "E-commerce",
     desc: "Creating custom e-commerce solutions with payment & cart systems.",
+    backText: "Stripe, Shopify, Custom Cart Flow, Admin Panels",
   },
 ];
 
@@ -52,15 +55,26 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="border border-[#c2926b] hover:bg-[#c2926b]/10 transition-all duration-300 p-8 text-center rounded"
+              className="flip-card"
             >
-              <div className="text-[#c2926b] mb-6">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-[#c2926b] mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {service.desc}
-              </p>
+              <div className="flip-card-inner">
+                {/* Front Side */}
+                <div className="flip-card-front border border-[#c2926b] p-8 text-center rounded bg-transparent">
+                  <div className="text-[#c2926b] mb-6">{service.icon}</div>
+                  <h3 className="text-xl font-semibold text-[#c2926b] mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {service.desc}
+                  </p>
+                </div>
+
+                {/* Back Side */}
+                <div className="flip-card-back border border-[#c2926b] p-8 text-center rounded bg-[#c2926b] text-black">
+                  <h4 className="text-lg font-semibold mb-3">{service.title}</h4>
+                  <p className="text-sm">{service.backText}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

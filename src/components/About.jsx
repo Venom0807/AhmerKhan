@@ -21,17 +21,18 @@ const About = () => {
           className="w-full lg:w-1/2 space-y-6"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold leading-snug">
-            I’m a Web Developer based in Lahore, who loves <br />
-            clean, responsive & unique websites. I also enjoy building things that work fast 🚀
-          </h2>
+  I’m a Web Developer who loves
+  building clean, responsive & unique websites. I enjoy crafting fast and functional digital experiences 
+</h2>
 
-          <p className="text-gray-300 leading-relaxed">
-            Web developer focused on building responsive, user-friendly websites using HTML, CSS, JavaScript, and React. Learning full-stack with Node.js and MongoDB. Passionate about problem solving and crafting quality code.
-          </p>
+<p className="text-gray-300 leading-relaxed">
+  Passionate about creating user-friendly, responsive interfaces with HTML, CSS, JavaScript, and React. Currently learning full-stack development using Node.js and MongoDB, with a focus on writing clean and efficient code.
+</p>
 
-          <p className="text-gray-300 leading-relaxed">
-            I believe in continuous learning and creative thinking. I love turning ideas into digital experiences that make a difference.
-          </p>
+<p className="text-gray-300 leading-relaxed">
+  I believe in continuous learning, solving real problems, and turning ideas into impactful digital solutions through creative thinking and code.
+</p>
+
 
           <a
             href="/ahmerCV.pdf"
@@ -50,12 +51,12 @@ const About = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="w-full lg:w-1/2 space-y-6 flex flex-col gap-10"
+          className="w-full lg:w-1/2 space-y-6 flex flex-col gap-10  "
         >
           {[
-            { label: "Wireframing", value: 90 },
-            { label: "UI/UX", value: 70 },
-            { label: "Interaction design", value: 45 },
+            { label: "Development", value: 90 },
+            { label: "Problem Solving", value: 70 },
+            { label: "Designing", value: 45 },
           ].map((skill) => (
             <div key={skill.label} className="w-full">
               <div className="flex justify-between mb-1">

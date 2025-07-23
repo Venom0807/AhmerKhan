@@ -1,29 +1,51 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const Toast = ({ message, onClose }) => (
+  <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+      className="fixed bottom-8 right-8 bg-[#c2926b] text-black px-6 py-4 rounded shadow-lg z-50"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <span className="font-medium">{message}</span>
+        <button
+          onClick={onClose}
+          className="ml-4 text-black hover:text-white transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+    </motion.div>
+  </AnimatePresence>
+);
 
 const Contact = () => {
   const form = useRef();
+  const [toastMessage, setToastMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "ahmerPortfolio", // ✅ your real service ID
-        "template_9yhuzhs", // ✅ your template ID
+        "ahmerPortfolio",
+        "template_9yhuzhs",
         form.current,
-        "gkGuSGi10eOfONqTt" // ✅ your public key
+        "gkGuSGi10eOfONqTt"
       )
-      .then(
-        () => {
-          alert("Message sent successfully! 🚀");
-          form.current.reset();
-        },
-        (error) => {
-          alert("Failed to send message ❌", error.text);
-        }
-      );
+      .then(() => {
+        setToastMessage("🚀 Message sent successfully!");
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error(error.text);
+        setToastMessage("❌ Failed to send message. Please try again.");
+      });
   };
 
   return (
@@ -68,6 +90,13 @@ const Contact = () => {
             required
             className="w-full bg-transparent border border-[#c2926b] px-4 py-3 rounded text-white"
           />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            className="w-full bg-transparent border border-[#c2926b] px-4 py-3 rounded text-white"
+          />
           <textarea
             name="message"
             placeholder="Your Message"
@@ -86,6 +115,14 @@ const Contact = () => {
           </motion.button>
         </motion.form>
       </div>
+
+      {/* Custom Toast */}
+      {toastMessage && (
+        <Toast
+          message={toastMessage}
+          onClose={() => setToastMessage("")}
+        />
+      )}
     </motion.section>
   );
 };
