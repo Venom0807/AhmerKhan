@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // Project data with live Vercel links
@@ -52,12 +52,29 @@ const projects = [
     image: "/portfolio7.png",
     link: "https://jksdghjkasdjasdjk213892728913.vercel.app/",
   },
+  {
+    id: 8,
+    title: "Code & Canvas",
+    category: "Website",
+    image: "/portfolio8.png",
+    link: "https://code-and-canvas-seven.vercel.app/",
+  },
+  {
+    id: 9,
+    title: "Eventify",
+    category: "Website",
+    image: "/portfolio9.png",
+    link: "https://eventify-one-beta.vercel.app/",
+  },
 ];
 
 const Portfolio = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+
   return (
     <motion.section
-      id="works" // 👈 Used for smooth scrolling anchor
+      id="works"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -78,7 +95,7 @@ const Portfolio = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((item) => (
+          {visibleProjects.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 30 }}
@@ -106,7 +123,7 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* More Works Button */}
+        {/* Toggle Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,8 +131,11 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-12"
         >
-          <button className="border border-[#c2926b] text-[#c2926b] hover:bg-[#c2926b] hover:text-black px-6 py-2 text-sm md:text-base rounded transition-all duration-300">
-            More Works
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className="border border-[#c2926b] text-[#c2926b] hover:bg-[#c2926b] hover:text-black px-6 py-2 text-sm md:text-base rounded transition-all duration-300"
+          >
+            {showAll ? "Show Less" : "Show More"}
           </button>
         </motion.div>
       </div>
